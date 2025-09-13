@@ -485,7 +485,7 @@ export default function App(){
         <div className="flex items-center gap-3">
           <img src="/logo.png" alt="SherkByte" className="h-9 w-9 rounded-2xl object-contain border border-zinc-800 bg-white/5 p-1" />
           <div>
-            <div className="font-semibold">IT Troubleshooting Trainer</div>
+            <div className="font-semibold">SherkByte Labs</div>
             <div className="text-xs text-zinc-400">Hands‑on labs & guided flows</div>
           </div>
         </div>
