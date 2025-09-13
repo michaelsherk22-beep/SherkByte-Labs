@@ -300,7 +300,7 @@ const Troubleshooter: React.FC<{ flowKey: keyof typeof FLOW_DEFS }>=({ flowKey }
   const [nodeId, setNodeId] = useState(FLOW_DEFS[flowKey].start);
   const [score, setScore] = useState(0);
   const flow = FLOW_DEFS[flowKey];
-  const node = flow.nodes[nodeId as keyof typeof flow.nodes];
+  const node: any = flow.nodes[nodeId as keyof typeof flow.nodes];
 
   function choose(opt:any){
     if (opt.correct) setScore(s=>s+1);
@@ -409,9 +409,7 @@ const LabRunner: React.FC<{ labId: string }>=({ labId })=>{
  * Progress Badges Component
  *************************/
 const Badges: React.FC = () => {
-  const [items, setItems] = useState(()=>{
-    return LAB_DEFS.map(l=> ({ id: l.id, title: l.title, badge: store.get(`lab:${l.id}:badges`, null) }));
-  });
+  const [items] = useState(() => ( LAB_DEFS.map(l => ({ id: l.id, title: l.title, badge: store.get(`lab:${l.id}:badges`, null) })) ));
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
       {items.map(it=> (
@@ -485,7 +483,7 @@ export default function App(){
     <div className="min-h-screen bg-gradient-to-b from-zinc-950 to-black text-zinc-100">
       <header className="max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-2xl bg-emerald-600 grid place-items-center font-bold">IT</div>
+          <img src="/logo.png" alt="SherkByte" className="h-9 w-9 rounded-2xl object-contain border border-zinc-800 bg-white/5 p-1" />
           <div>
             <div className="font-semibold">IT Troubleshooting Trainer</div>
             <div className="text-xs text-zinc-400">Hands‑on labs & guided flows</div>
